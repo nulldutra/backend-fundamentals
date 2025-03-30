@@ -1,10 +1,13 @@
 package main
 
-import "log"
+import (
+	"backend-fundamentals/internal/env"
+	"log"
+)
 
 func main() {
 	cfg := config{
-		addr: ":8000",
+		addr: env.GetString("BIND_PORT", ":8000"),
 	}
 
 	app := &application{
